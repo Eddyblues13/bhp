@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>BHP Resources Cooperation | Oil &amp; Gas Engineering Excellence</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { 50:'#f0f7f4', 100:'#d1ede2', 200:'#a3dbc5', 300:'#6ec3a3', 400:'#3AB795', 500:'#2e9a7a', 600:'#237a60' },
+            navy: { 50:'#eef3f7', 100:'#d5e1ea', 200:'#a8c2d4', 500:'#1E5A6E', 600:'#0A2B3E', 700:'#081f2d', 800:'#05131c' },
+            oil: { 50:'#fdf8f0', 100:'#faecd6', 200:'#f4d4a4', 300:'#edba6f', 400:'#e6a03a', 500:'#d4881f', 600:'#b06e18', 700:'#8a5613' },
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+    body { background: #fefefe; }
+    .hero-overlay { background: linear-gradient(135deg, rgba(10,43,62,0.93) 0%, rgba(30,90,110,0.78) 50%, rgba(10,43,62,0.72) 100%); }
+    .pillar-card { transition: all 0.35s cubic-bezier(.4,0,.2,1); }
+    .pillar-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(10,43,62,0.25); }
+    .project-card:hover img { transform: scale(1.05); }
+    .project-card img { transition: transform 0.6s cubic-bezier(.4,0,.2,1); }
+    .active-nav { border-bottom: 3px solid #e6a03a; color: #0A2B3E; font-weight: 600; }
+    @media (max-width: 768px) { .active-nav { border-bottom: none; background: #f0f7f4; border-radius: 24px; } }
+    .ceo-card { background: rgba(230,160,58,0.06); backdrop-filter: blur(2px); border: 1px solid rgba(230,160,58,0.2); }
+    .stats-number { font-size: 2.4rem; font-weight: 900; color: #0A2B3E; line-height: 1.1; }
+    .section-title { position: relative; display: inline-block; }
+    .section-title:after { content: ''; position: absolute; bottom: -12px; left: 0; width: 70px; height: 4px; background: #e6a03a; border-radius: 4px; }
+    .gold-accent { color: #e6a03a; }
+    .service-icon { width: 64px; height: 64px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+    .counter-box { border-left: 4px solid #e6a03a; }
+    .hero-stat { background: rgba(255,255,255,0.1); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.15); }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <div class="h-10 w-10 bg-gradient-to-br from-navy-600 to-navy-500 rounded-xl flex items-center justify-center shadow-lg">
+          <i class="fas fa-oil-well text-oil-400 text-lg"></i>
+        </div>
+        <div class="leading-tight">
+          <span class="font-bold text-xl tracking-tight text-gray-800">BHP<span class="text-oil-400"> Resources</span> Cooperation</span>
+          <p class="text-[10px] text-gray-400 tracking-widest uppercase -mt-0.5">Oil &amp; Gas Engineering</p>
+        </div>
+      </div>
+      <div class="hidden md:flex space-x-8 text-gray-700 font-medium">
+        <a href="#home" class="nav-link hover:text-oil-400 transition px-1 py-2">Home</a>
+        <a href="#about" class="nav-link hover:text-oil-400 transition px-1 py-2">Company</a>
+        <a href="#services" class="nav-link hover:text-oil-400 transition px-1 py-2">Services</a>
+        <a href="#projects" class="nav-link hover:text-oil-400 transition px-1 py-2">Projects</a>
+        <a href="#contact" class="nav-link hover:text-oil-400 transition px-1 py-2">Contact</a>
+      </div>
+      <button id="mobileMenuBtn" class="md:hidden text-gray-700 text-2xl focus:outline-none"><i class="fas fa-bars"></i></button>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100 py-4 px-6 flex flex-col space-y-4 shadow-lg">
+      <a href="#home" class="mobile-link text-gray-700 font-medium hover:text-oil-400 py-1">Home</a>
+      <a href="#about" class="mobile-link text-gray-700 font-medium hover:text-oil-400 py-1">Company</a>
+      <a href="#services" class="mobile-link text-gray-700 font-medium hover:text-oil-400 py-1">Services</a>
+      <a href="#projects" class="mobile-link text-gray-700 font-medium hover:text-oil-400 py-1">Projects</a>
+      <a href="#contact" class="mobile-link text-gray-700 font-medium hover:text-oil-400 py-1">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ========== HERO SECTION ========== -->
+  <section id="home" class="relative min-h-[92vh] flex items-center overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="https://images.unsplash.com/photo-1513828583688-c52646db42da?w=1920&q=80" alt="Oil refinery at dusk" class="w-full h-full object-cover">
+      <div class="hero-overlay absolute inset-0"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-8 py-20 w-full">
+      <div class="max-w-3xl fade-in-up">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="bg-oil-400/20 text-oil-300 font-semibold text-sm uppercase tracking-wider rounded-full px-5 py-2 border border-oil-400/30">US-Headquartered · Global Operations</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-black leading-[1.05] text-white">
+          Powering the World's <span class="text-oil-400">Oil &amp; Gas</span> Infrastructure
+        </h1>
+        <p class="text-gray-300 text-lg md:text-xl mt-6 max-w-2xl leading-relaxed">
+          Integrated engineering, procurement &amp; construction solutions for upstream, midstream and downstream oil &amp; gas operations — from deepwater platforms to LNG terminals and refinery complexes.
+        </p>
+        <div class="flex flex-wrap gap-4 mt-10">
+          <a href="#contact" class="bg-oil-400 hover:bg-oil-500 text-navy-600 font-bold px-8 py-4 rounded-full transition shadow-lg shadow-oil-400/30 flex items-center gap-2 text-lg">
+            <i class="fas fa-handshake"></i> Partner with Us
+          </a>
+          <a href="#services" class="border-2 border-white/30 hover:border-white/60 text-white font-semibold px-8 py-4 rounded-full transition flex items-center gap-2 text-lg backdrop-blur-sm">
+            <i class="fas fa-oil-well"></i> Our Services
+          </a>
+        </div>
+      </div>
+      <!-- Hero stats bar -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16">
+        <div class="hero-stat rounded-2xl p-5 text-center">
+          <i class="fas fa-oil-can text-oil-400 text-2xl mb-2"></i>
+          <div class="text-3xl font-black text-white">2.4M+</div>
+          <p class="text-gray-400 text-sm">Barrels/day capacity built</p>
+        </div>
+        <div class="hero-stat rounded-2xl p-5 text-center">
+          <i class="fas fa-globe-americas text-oil-400 text-2xl mb-2"></i>
+          <div class="text-3xl font-black text-white">60+</div>
+          <p class="text-gray-400 text-sm">Countries served</p>
+        </div>
+        <div class="hero-stat rounded-2xl p-5 text-center">
+          <i class="fas fa-users-gear text-oil-400 text-2xl mb-2"></i>
+          <div class="text-3xl font-black text-white">12,800+</div>
+          <p class="text-gray-400 text-sm">O&amp;G professionals</p>
+        </div>
+        <div class="hero-stat rounded-2xl p-5 text-center">
+          <i class="fas fa-dollar-sign text-oil-400 text-2xl mb-2"></i>
+          <div class="text-3xl font-black text-white">$24B+</div>
+          <p class="text-gray-400 text-sm">Project backlog</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TRUSTED BY BANNER ========== -->
+  <section class="bg-navy-600 py-6">
+    <div class="max-w-7xl mx-auto px-6 md:px-8">
+      <div class="flex flex-wrap items-center justify-center gap-x-12 gap-y-4 text-gray-400 text-sm font-medium">
+        <span class="uppercase tracking-wider text-oil-400/70 text-xs">Trusted across the value chain:</span>
+        <span><i class="fas fa-check-circle text-oil-400 mr-1"></i> Upstream Exploration</span>
+        <span><i class="fas fa-check-circle text-oil-400 mr-1"></i> Offshore Production</span>
+        <span><i class="fas fa-check-circle text-oil-400 mr-1"></i> Pipeline &amp; Transport</span>
+        <span><i class="fas fa-check-circle text-oil-400 mr-1"></i> Refining &amp; Petrochemicals</span>
+        <span><i class="fas fa-check-circle text-oil-400 mr-1"></i> LNG &amp; Gas Processing</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT / COMPANY ========== -->
+  <section id="about" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6 md:px-8">
+      <div class="text-center mb-16">
+        <span class="gold-accent font-semibold text-sm uppercase tracking-wider">About BHP Resources</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-3 text-gray-900 section-title inline-block">A Legacy in Oil &amp; Gas</h2>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-14 items-center">
+        <div>
+          <p class="text-gray-700 text-lg leading-relaxed">
+            BHP Resources Cooperation is a US-headquartered integrated oil &amp; gas engineering, procurement &amp; construction (EPC) company. From the deepwater fields of the Gulf of Mexico to major refinery complexes across three continents, we deliver technically demanding energy projects that set the industry standard for safety, efficiency and operational excellence.
+          </p>
+          <p class="text-gray-600 text-base leading-relaxed mt-4">
+            With over two decades of experience, we specialize in the full hydrocarbon value chain — upstream exploration &amp; production, midstream pipeline &amp; transport infrastructure, and downstream refining &amp; petrochemical processing. Our proprietary technologies and world-class workforce enable us to tackle the most complex challenges in the global energy sector.
+          </p>
+          <div class="mt-8 bg-navy-600 rounded-2xl p-6 text-white">
+            <i class="fas fa-quote-left text-oil-400 text-2xl opacity-80"></i>
+            <p class="italic mt-2 text-gray-200 text-lg">"In oil &amp; gas, there is no room for compromise on safety or quality. Every barrel, every pipeline, every platform reflects our commitment to engineering excellence."</p>
+            <p class="font-bold mt-4 text-oil-400">— Alan D Baigh, CEO</p>
+          </div>
+        </div>
+        <div class="space-y-6">
+          <div class="grid grid-cols-2 gap-4">
+            <img src="https://images.unsplash.com/photo-1586953208270-767fc7fbb972?w=400&q=80" alt="Offshore oil platform" class="rounded-2xl h-48 w-full object-cover shadow-lg">
+            <img src="https://images.unsplash.com/photo-1581093458791-9d42e3c1e919?w=400&q=80" alt="Pipeline infrastructure" class="rounded-2xl h-48 w-full object-cover shadow-lg">
+          </div>
+          <img src="https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=600&q=80" alt="Oil pump jacks at sunset" class="rounded-2xl h-56 w-full object-cover shadow-lg">
+        </div>
+      </div>
+
+      <!-- Key numbers -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20">
+        <div class="counter-box pl-5 py-3">
+          <div class="stats-number">0.09%</div>
+          <p class="text-gray-500 text-sm">Contribution to US GDP</p>
+        </div>
+        <div class="counter-box pl-5 py-3">
+          <div class="stats-number">210+</div>
+          <p class="text-gray-500 text-sm">Active O&amp;G patents</p>
+        </div>
+        <div class="counter-box pl-5 py-3">
+          <div class="stats-number">136+</div>
+          <p class="text-gray-500 text-sm">Process plants delivered</p>
+        </div>
+        <div class="counter-box pl-5 py-3">
+          <div class="stats-number">99.7%</div>
+          <p class="text-gray-500 text-sm">Safety record (2024)</p>
+        </div>
+      </div>
+
+      <!-- Mission / Vision / Values -->
+      <div class="grid md:grid-cols-3 gap-8 mt-16">
+        <div class="bg-gray-50 rounded-2xl p-7 border-t-4 border-oil-400">
+          <i class="fas fa-bullseye text-oil-400 text-3xl"></i>
+          <h4 class="font-bold text-xl mt-3">Our Mission</h4>
+          <p class="text-gray-600 mt-2">To deliver world-class oil &amp; gas infrastructure with uncompromising safety standards, cutting-edge technology, and responsible environmental stewardship.</p>
+        </div>
+        <div class="bg-gray-50 rounded-2xl p-7 border-t-4 border-navy-500">
+          <i class="fas fa-eye text-navy-500 text-3xl"></i>
+          <h4 class="font-bold text-xl mt-3">Our Vision</h4>
+          <p class="text-gray-600 mt-2">To be the premier US-based integrated EPC partner for major oil &amp; gas operators worldwide, driving energy security and economic growth.</p>
+        </div>
+        <div class="bg-gray-50 rounded-2xl p-7 border-t-4 border-brand-400">
+          <i class="fas fa-hand-holding-heart text-brand-400 text-3xl"></i>
+          <h4 class="font-bold text-xl mt-3">Our Values</h4>
+          <p class="text-gray-600 mt-2">Safety first, always. Operational integrity. Technical excellence. Environmental responsibility. Transparent partnerships built on trust.</p>
+        </div>
+      </div>
+
+      <!-- Locations -->
+      <div class="mt-16 bg-navy-600 rounded-3xl p-8 text-white">
+        <h3 class="text-xl font-bold mb-6 text-center">BHP Resources — US Roots, Global O&amp;G Footprint</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div>
+            <div class="w-14 h-14 bg-white/10 rounded-2xl mx-auto flex items-center justify-center"><i class="fas fa-building text-oil-400 text-2xl"></i></div>
+            <p class="font-bold mt-3">Houston, TX</p><span class="text-xs text-gray-400">Global Headquarters</span>
+          </div>
+          <div>
+            <div class="w-14 h-14 bg-white/10 rounded-2xl mx-auto flex items-center justify-center"><i class="fas fa-ship text-oil-400 text-2xl"></i></div>
+            <p class="font-bold mt-3">New Orleans, LA</p><span class="text-xs text-gray-400">Offshore Operations</span>
+          </div>
+          <div>
+            <div class="w-14 h-14 bg-white/10 rounded-2xl mx-auto flex items-center justify-center"><i class="fas fa-flask text-oil-400 text-2xl"></i></div>
+            <p class="font-bold mt-3">Baton Rouge, LA</p><span class="text-xs text-gray-400">Refining &amp; Petrochemicals</span>
+          </div>
+          <div>
+            <div class="w-14 h-14 bg-white/10 rounded-2xl mx-auto flex items-center justify-center"><i class="fas fa-tower-observation text-oil-400 text-2xl"></i></div>
+            <p class="font-bold mt-3">Midland, TX</p><span class="text-xs text-gray-400">Permian Basin Operations</span>
+          </div>
+        </div>
+        <div class="flex flex-wrap justify-center gap-6 mt-8 pt-6 border-t border-white/10 text-sm text-gray-400">
+          <span><i class="fas fa-map-pin text-oil-400 mr-1"></i> Abu Dhabi, UAE</span>
+          <span><i class="fas fa-map-pin text-oil-400 mr-1"></i> Lagos, Nigeria</span>
+          <span><i class="fas fa-map-pin text-oil-400 mr-1"></i> Perth, Australia</span>
+          <span><i class="fas fa-map-pin text-oil-400 mr-1"></i> Doha, Qatar</span>
+          <span><i class="fas fa-map-pin text-oil-400 mr-1"></i> Calgary, Canada</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== OIL & GAS SERVICES ========== -->
+  <section id="services" class="py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6 md:px-8">
+      <div class="text-center mb-16">
+        <span class="gold-accent font-semibold text-sm uppercase tracking-wider">Full Value Chain</span>
+        <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mt-3">Oil &amp; Gas Services</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto mt-4 text-lg">End-to-end engineering, procurement &amp; construction across the entire hydrocarbon lifecycle</p>
+      </div>
+
+      <!-- Upstream / Midstream / Downstream -->
+      <div class="grid lg:grid-cols-3 gap-8 mb-16">
+        <!-- Upstream -->
+        <div class="bg-white rounded-3xl overflow-hidden shadow-lg pillar-card border border-gray-100">
+          <div class="h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?w=500&q=80" alt="Offshore drilling platform" class="w-full h-full object-cover">
+          </div>
+          <div class="p-7">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="service-icon bg-oil-100 text-oil-600"><i class="fas fa-oil-well"></i></div>
+              <h3 class="text-2xl font-bold">Upstream</h3>
+            </div>
+            <p class="text-gray-600 leading-relaxed">Exploration &amp; production engineering for onshore and offshore assets. Deepwater platform design, FPSO topsides, drilling systems, well completions, and subsea production systems.</p>
+            <ul class="mt-4 space-y-2 text-sm text-gray-700">
+              <li><i class="fas fa-chevron-right text-oil-400 mr-2 text-xs"></i>Deepwater &amp; ultra-deepwater platforms</li>
+              <li><i class="fas fa-chevron-right text-oil-400 mr-2 text-xs"></i>FPSO design &amp; topsides engineering</li>
+              <li><i class="fas fa-chevron-right text-oil-400 mr-2 text-xs"></i>Subsea production &amp; SURF systems</li>
+              <li><i class="fas fa-chevron-right text-oil-400 mr-2 text-xs"></i>Well engineering &amp; completions</li>
+              <li><i class="fas fa-chevron-right text-oil-400 mr-2 text-xs"></i>Enhanced oil recovery (EOR)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Midstream -->
+        <div class="bg-white rounded-3xl overflow-hidden shadow-lg pillar-card border border-gray-100">
+          <div class="h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1623018035782-b269248df916?w=500&q=80" alt="Pipeline infrastructure" class="w-full h-full object-cover">
+          </div>
+          <div class="p-7">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="service-icon bg-navy-100 text-navy-600"><i class="fas fa-pipe-section"></i></div>
+              <h3 class="text-2xl font-bold">Midstream</h3>
+            </div>
+            <p class="text-gray-600 leading-relaxed">Pipeline engineering, gas processing, storage terminals, and transportation infrastructure connecting production assets to downstream facilities.</p>
+            <ul class="mt-4 space-y-2 text-sm text-gray-700">
+              <li><i class="fas fa-chevron-right text-oil-400 mr-2 text-xs"></i>Onshore &amp; offshore pipeline systems</li>
+              <li><i class="fas fa-chevron-right text-oil-400 mr-2 text-xs"></i>Gas gathering &amp; processing plants</li>
+              <li><i class="fas fa-chevron-right text-oil-400 mr-2 text-xs"></i>Crude oil &amp; product terminals</li>
+              <li><i class="fas fa-chevron-right text-oil-400 mr-2 text-xs"></i>Compression &amp; pumping stations</li>
+              <li><i class="fas fa-chevron-right text-oil-400 mr-2 text-xs"></i>NGL fractionation facilities</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Downstream -->
+        <div class="bg-white rounded-3xl overflow-hidden shadow-lg pillar-card border border-gray-100">
+          <div class="h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1513828583688-c52646db42da?w=500&q=80" alt="Oil refinery at night" class="w-full h-full object-cover">
+          </div>
+          <div class="p-7">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="service-icon bg-brand-100 text-brand-600"><i class="fas fa-industry"></i></div>
+              <h3 class="text-2xl font-bold">Downstream</h3>
+            </div>
+            <p class="text-gray-600 leading-relaxed">Refinery design &amp; optimization, petrochemical complexes, fuel processing, emissions control, and facility modernization for maximum yield.</p>
+            <ul class="mt-4 space-y-2 text-sm text-gray-700">
+              <li><i class="fas fa-chevron-right text-oil-400 mr-2 text-xs"></i>Refinery EPC &amp; modernization</li>
+              <li><i class="fas fa-chevron-right text-oil-400 mr-2 text-xs"></i>Petrochemical &amp; polymer plants</li>
+              <li><i class="fas fa-chevron-right text-oil-400 mr-2 text-xs"></i>Hydrocracking &amp; hydrotreating units</li>
+              <li><i class="fas fa-chevron-right text-oil-400 mr-2 text-xs"></i>Sulfur recovery &amp; emissions control</li>
+              <li><i class="fas fa-chevron-right text-oil-400 mr-2 text-xs"></i>Tank farm &amp; terminal operations</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional specialized services -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white rounded-2xl p-6 shadow-md pillar-card border border-gray-100">
+          <i class="fas fa-snowflake text-4xl text-navy-500"></i>
+          <h3 class="text-lg font-bold mt-4">LNG &amp; Gas Monetization</h3>
+          <p class="text-gray-600 text-sm mt-2">Liquefaction trains, regasification terminals, floating LNG, small-scale LNG, and gas-to-liquids technology.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-md pillar-card border border-gray-100">
+          <i class="fas fa-robot text-4xl text-navy-500"></i>
+          <h3 class="text-lg font-bold mt-4">Subsea Robotics &amp; Inspection</h3>
+          <p class="text-gray-600 text-sm mt-2">ROV/AUV operations, diverless pipeline repair, SPRINGS&reg; technology, AI-driven subsea inspection systems.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-md pillar-card border border-gray-100">
+          <i class="fas fa-leaf text-4xl text-brand-400"></i>
+          <h3 class="text-lg font-bold mt-4">CCUS &amp; Carbon Management</h3>
+          <p class="text-gray-600 text-sm mt-2">Carbon capture, utilization &amp; storage. CarbonClear&trade; enzyme-based technology. 70+ CO&#8322; removal plants globally.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-md pillar-card border border-gray-100">
+          <i class="fas fa-hard-hat text-4xl text-oil-400"></i>
+          <h3 class="text-lg font-bold mt-4">Asset Integrity &amp; Maintenance</h3>
+          <p class="text-gray-600 text-sm mt-2">Life extension programs, turnaround management, integrity assessment, corrosion management, and digital twin monitoring.</p>
+        </div>
+      </div>
+
+      <!-- Technology highlight -->
+      <div class="mt-20 bg-white rounded-3xl overflow-hidden shadow-xl">
+        <div class="grid md:grid-cols-2">
+          <div class="p-10 flex flex-col justify-center">
+            <span class="bg-oil-100 text-oil-700 text-xs font-bold px-4 py-1.5 rounded-full w-fit uppercase tracking-wider">Proprietary Technology</span>
+            <h3 class="text-3xl font-bold mt-4">CarbonClear&trade; by BHP</h3>
+            <p class="text-gray-600 mt-4 leading-relaxed">Our enzyme-catalyzed potassium carbonate absorption technology provides low-energy, non-toxic CO&#8322; capture with no amine waste. Fully integrated CCUS value chain — capture, transport, reinjection, and enhanced oil recovery.</p>
+            <div class="mt-6 space-y-3">
+              <div class="flex items-center gap-3"><i class="fas fa-check-circle text-brand-400"></i><span class="text-gray-700">Low corrosion, reduced OPEX vs. amine systems</span></div>
+              <div class="flex items-center gap-3"><i class="fas fa-check-circle text-brand-400"></i><span class="text-gray-700">Standard off-the-shelf equipment</span></div>
+              <div class="flex items-center gap-3"><i class="fas fa-check-circle text-brand-400"></i><span class="text-gray-700">Commercial-scale facility operational in Texas</span></div>
+              <div class="flex items-center gap-3"><i class="fas fa-check-circle text-brand-400"></i><span class="text-gray-700">70+ CO&#8322; removal plants delivered worldwide</span></div>
+            </div>
+          </div>
+          <div>
+            <img src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=600&q=80" alt="Industrial gas processing facility" class="w-full h-full object-cover min-h-[400px]">
+          </div>
+        </div>
+      </div>
+
+      <!-- Subsea tech tags -->
+      <div class="mt-12 bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+        <h3 class="text-xl font-bold flex items-center gap-2"><i class="fas fa-microchip text-oil-400"></i> Subsea &amp; Robotics Technology Portfolio</h3>
+        <div class="flex flex-wrap gap-4 mt-4 text-sm">
+          <span class="bg-navy-50 text-navy-600 px-4 py-2 rounded-full font-medium">SPRINGS&reg; Subsea Desulfation</span>
+          <span class="bg-navy-50 text-navy-600 px-4 py-2 rounded-full font-medium">FLUIDEEP&trade; Chemical Storage</span>
+          <span class="bg-navy-50 text-navy-600 px-4 py-2 rounded-full font-medium">Vertical MultiPipe Separation</span>
+          <span class="bg-navy-50 text-navy-600 px-4 py-2 rounded-full font-medium">SiRCoS Telescopic Joint</span>
+          <span class="bg-navy-50 text-navy-600 px-4 py-2 rounded-full font-medium">Diverless Pipeline Repair</span>
+          <span class="bg-oil-50 text-oil-700 px-4 py-2 rounded-full font-medium">OTC Spotlight Awards 2023</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== INDUSTRY EXPERTISE BANNER ========== -->
+  <section class="relative py-20 overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=1920&q=80" alt="Oil pump jacks at golden hour" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-navy-600/90"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-8 text-center text-white">
+      <h2 class="text-3xl md:text-4xl font-bold">Decades of Oil &amp; Gas Expertise</h2>
+      <p class="text-gray-300 mt-4 max-w-3xl mx-auto text-lg">We have operated in the world's most demanding hydrocarbon basins — the Gulf of Mexico, Permian Basin, North Sea, West Africa, Middle East, and Asia-Pacific. Our integrated approach covers every phase from feasibility studies through commissioning and operations.</p>
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-6 mt-12">
+        <div>
+          <div class="text-4xl font-black text-oil-400">45+</div>
+          <p class="text-gray-400 text-sm mt-1">Offshore platforms built</p>
+        </div>
+        <div>
+          <div class="text-4xl font-black text-oil-400">8,500+</div>
+          <p class="text-gray-400 text-sm mt-1">km pipelines installed</p>
+        </div>
+        <div>
+          <div class="text-4xl font-black text-oil-400">22</div>
+          <p class="text-gray-400 text-sm mt-1">Refineries upgraded</p>
+        </div>
+        <div>
+          <div class="text-4xl font-black text-oil-400">14</div>
+          <p class="text-gray-400 text-sm mt-1">LNG trains delivered</p>
+        </div>
+        <div>
+          <div class="text-4xl font-black text-oil-400">$3.2B</div>
+          <p class="text-gray-400 text-sm mt-1">R&amp;D investment</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROJECTS ========== -->
+  <section id="projects" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6 md:px-8">
+      <div class="text-center mb-16">
+        <span class="gold-accent font-semibold text-sm uppercase tracking-wider">Project Portfolio</span>
+        <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mt-3">Flagship Oil &amp; Gas Projects</h2>
+        <p class="text-gray-500 max-w-2xl mx-auto mt-4 text-lg">Delivering critical energy infrastructure worldwide with a backlog exceeding $24 billion</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Project 1 -->
+        <div class="rounded-3xl overflow-hidden shadow-lg bg-white group project-card border border-gray-100">
+          <div class="h-56 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1586953208270-767fc7fbb972?w=500&q=80" alt="Deepwater oil platform" class="h-full w-full object-cover">
+            <div class="absolute top-4 left-4"><span class="bg-oil-400 text-navy-800 text-xs font-bold px-3 py-1.5 rounded-full">Upstream</span></div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start">
+              <h3 class="font-bold text-xl">Gulf of Mexico Deepwater Complex</h3>
+              <i class="fas fa-oil-well text-oil-400 text-xl"></i>
+            </div>
+            <p class="text-gray-600 text-sm mt-3">Semi-submersible production platform with 120,000 bpd capacity. Full SURF &amp; subsea manifold system at 7,500 ft water depth. Integrated production &amp; drilling facility.</p>
+            <div class="flex items-center gap-4 mt-4 pt-4 border-t border-gray-100">
+              <span class="text-xs text-gray-400"><i class="fas fa-dollar-sign mr-1"></i>$3.8B EPC</span>
+              <span class="text-xs text-gray-400"><i class="fas fa-calendar mr-1"></i>2026 start-up</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="rounded-3xl overflow-hidden shadow-lg bg-white group project-card border border-gray-100">
+          <div class="h-56 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1513828583688-c52646db42da?w=500&q=80" alt="LNG terminal" class="h-full w-full object-cover">
+            <div class="absolute top-4 left-4"><span class="bg-navy-500 text-white text-xs font-bold px-3 py-1.5 rounded-full">LNG</span></div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start">
+              <h3 class="font-bold text-xl">Texas Gulf LNG Export Terminal</h3>
+              <i class="fas fa-snowflake text-navy-500 text-xl"></i>
+            </div>
+            <p class="text-gray-600 text-sm mt-3">Two-train LNG liquefaction facility with 16 MTPA nameplate capacity. Full EPC including marine facilities, cryogenic storage tanks, and loading infrastructure.</p>
+            <div class="flex items-center gap-4 mt-4 pt-4 border-t border-gray-100">
+              <span class="text-xs text-gray-400"><i class="fas fa-dollar-sign mr-1"></i>$5.2B contract</span>
+              <span class="text-xs text-gray-400"><i class="fas fa-calendar mr-1"></i>Train 1: 2027</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="rounded-3xl overflow-hidden shadow-lg bg-white group project-card border border-gray-100">
+          <div class="h-56 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1623018035782-b269248df916?w=500&q=80" alt="Pipeline construction" class="h-full w-full object-cover">
+            <div class="absolute top-4 left-4"><span class="bg-brand-400 text-white text-xs font-bold px-3 py-1.5 rounded-full">Midstream</span></div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start">
+              <h3 class="font-bold text-xl">Permian–Gulf Coast Crude Pipeline</h3>
+              <i class="fas fa-pipe-section text-brand-400 text-xl"></i>
+            </div>
+            <p class="text-gray-600 text-sm mt-3">42-inch, 650-mile crude oil pipeline connecting Permian Basin production to Gulf Coast refineries. 1.2M bpd throughput with 4 pump stations and tank terminal.</p>
+            <div class="flex items-center gap-4 mt-4 pt-4 border-t border-gray-100">
+              <span class="text-xs text-gray-400"><i class="fas fa-dollar-sign mr-1"></i>$2.1B EPC</span>
+              <span class="text-xs text-gray-400"><i class="fas fa-calendar mr-1"></i>Operational 2025</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="rounded-3xl overflow-hidden shadow-lg bg-white group project-card border border-gray-100">
+          <div class="h-56 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=500&q=80" alt="Carbon capture facility" class="h-full w-full object-cover">
+            <div class="absolute top-4 left-4"><span class="bg-brand-400 text-white text-xs font-bold px-3 py-1.5 rounded-full">CCUS</span></div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start">
+              <h3 class="font-bold text-xl">Texas CarbonClear&trade; Mega Facility</h3>
+              <i class="fas fa-cloud text-brand-400 text-xl"></i>
+            </div>
+            <p class="text-gray-600 text-sm mt-3">2 MTPA CO&#8322; capture with enzyme-based CarbonClear&trade; technology. Enhanced oil recovery integration and permanent geological storage. Largest private CCUS in the US.</p>
+            <div class="flex items-center gap-4 mt-4 pt-4 border-t border-gray-100">
+              <span class="text-xs text-gray-400"><i class="fas fa-dollar-sign mr-1"></i>$1.8B investment</span>
+              <span class="text-xs text-gray-400"><i class="fas fa-calendar mr-1"></i>Operational 2025</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="rounded-3xl overflow-hidden shadow-lg bg-white group project-card border border-gray-100">
+          <div class="h-56 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?w=500&q=80" alt="Offshore platform at sea" class="h-full w-full object-cover">
+            <div class="absolute top-4 left-4"><span class="bg-oil-400 text-navy-800 text-xs font-bold px-3 py-1.5 rounded-full">Offshore</span></div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start">
+              <h3 class="font-bold text-xl">West Africa FPSO Topsides</h3>
+              <i class="fas fa-ship text-oil-400 text-xl"></i>
+            </div>
+            <p class="text-gray-600 text-sm mt-3">180,000 bpd FPSO topsides engineering, procurement &amp; construction for deep offshore West Africa. Gas injection, water treatment, and power generation modules.</p>
+            <div class="flex items-center gap-4 mt-4 pt-4 border-t border-gray-100">
+              <span class="text-xs text-gray-400"><i class="fas fa-dollar-sign mr-1"></i>$2.9B contract</span>
+              <span class="text-xs text-gray-400"><i class="fas fa-calendar mr-1"></i>Delivery 2027</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="rounded-3xl overflow-hidden shadow-lg bg-white group project-card border border-gray-100">
+          <div class="h-56 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1545259742-b4fd8fea67ab?w=500&q=80" alt="Refinery complex" class="h-full w-full object-cover">
+            <div class="absolute top-4 left-4"><span class="bg-navy-500 text-white text-xs font-bold px-3 py-1.5 rounded-full">Downstream</span></div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start">
+              <h3 class="font-bold text-xl">Louisiana Refinery Modernization</h3>
+              <i class="fas fa-industry text-navy-500 text-xl"></i>
+            </div>
+            <p class="text-gray-600 text-sm mt-3">Full refinery revamp: new hydrocracker, sulfur recovery, coker replacement, and emissions reduction. Capacity upgrade to 320,000 bpd with low-sulfur diesel compliance.</p>
+            <div class="flex items-center gap-4 mt-4 pt-4 border-t border-gray-100">
+              <span class="text-xs text-gray-400"><i class="fas fa-dollar-sign mr-1"></i>$4.1B revamp</span>
+              <span class="text-xs text-gray-400"><i class="fas fa-calendar mr-1"></i>Completion 2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== HSE SECTION ========== -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6 md:px-8">
+      <div class="grid md:grid-cols-2 gap-14 items-center">
+        <div>
+          <span class="gold-accent font-semibold text-sm uppercase tracking-wider">Safety &amp; Sustainability</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-3">HSE Excellence in Every Operation</h2>
+          <p class="text-gray-600 mt-4 text-lg leading-relaxed">Safety is not a priority — it is a core value. Our Health, Safety &amp; Environment management system exceeds API, OSHA, and international standards across every project site, platform, and facility we operate.</p>
+          <div class="grid grid-cols-2 gap-4 mt-8">
+            <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+              <div class="text-3xl font-black text-brand-400">0.04</div>
+              <p class="text-xs text-gray-500">TRIR (Total Recordable Incident Rate)</p>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+              <div class="text-3xl font-black text-brand-400">18M+</div>
+              <p class="text-xs text-gray-500">Safe work hours (2024)</p>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+              <div class="text-3xl font-black text-navy-600">ISO 14001</div>
+              <p class="text-xs text-gray-500">Environmental management</p>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+              <div class="text-3xl font-black text-navy-600">ISO 45001</div>
+              <p class="text-xs text-gray-500">Occupational H&amp;S</p>
+            </div>
+          </div>
+          <div class="mt-6 flex items-center gap-3">
+            <i class="fas fa-award text-oil-400 text-xl"></i>
+            <span class="font-medium text-gray-700">2024 S&amp;P Global Sustainability Yearbook Member — Top 10% of engineering firms</span>
+          </div>
+        </div>
+        <div>
+          <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80" alt="Safety-equipped oil and gas workers" class="rounded-3xl shadow-xl w-full h-auto object-cover">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT & CEO ========== -->
+  <section id="contact" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6 md:px-8">
+      <div class="text-center mb-14">
+        <span class="gold-accent font-semibold text-sm uppercase tracking-wider">Get in Touch</span>
+        <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mt-3">Connect with Our Leadership</h2>
+        <p class="text-gray-500 max-w-lg mx-auto mt-3 text-lg">Ready to partner on your next oil &amp; gas project? Let's talk.</p>
+      </div>
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+        <!-- CEO Card -->
+        <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 ceo-card transition-all hover:shadow-2xl">
+          <div class="bg-navy-600 px-7 py-5 text-white flex items-center gap-3">
+            <i class="fas fa-crown text-oil-400"></i>
+            <span class="font-bold text-lg">Chief Executive Officer</span>
+          </div>
+          <div class="p-8 flex flex-col md:flex-row gap-6 items-center">
+            <div class="w-36 h-36 rounded-2xl bg-gradient-to-br from-navy-100 to-navy-200 flex items-center justify-center shadow-inner">
+              <i class="fas fa-user-tie text-6xl text-navy-500"></i>
+            </div>
+            <div>
+              <h3 class="text-2xl font-black text-gray-800">Alan D Baigh</h3>
+              <p class="text-oil-500 font-semibold text-lg">CEO, BHP Resources Cooperation</p>
+              <p class="text-gray-500 text-sm mt-1">25+ years in global oil &amp; gas operations</p>
+              <div class="mt-4 space-y-3 text-gray-700">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 bg-oil-100 rounded-lg flex items-center justify-center"><i class="fas fa-envelope text-oil-500 text-sm"></i></div>
+                  <a href="mailto:baighalan210@gmail.com" class="hover:underline hover:text-oil-500 transition">baighalan210@gmail.com</a>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 bg-oil-100 rounded-lg flex items-center justify-center"><i class="fas fa-phone-alt text-oil-500 text-sm"></i></div>
+                  <a href="tel:+14236167455" class="hover:underline hover:text-oil-500 transition">+1 (423) 616-7455</a>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 bg-oil-100 rounded-lg flex items-center justify-center"><i class="fab fa-linkedin text-oil-500 text-sm"></i></div>
+                  <span>linkedin.com/in/alan-baigh-bhp</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="border-t px-8 py-5 bg-gray-50">
+            <p class="text-gray-600 text-sm italic"><i class="fas fa-quote-left text-oil-400 mr-2"></i>"In oil &amp; gas, trust is built barrel by barrel, project by project. We bring American engineering leadership and global operational discipline to every partnership."</p>
+          </div>
+        </div>
+
+        <!-- HQ & info -->
+        <div class="space-y-6">
+          <div class="bg-gray-50 p-7 rounded-3xl border border-gray-100">
+            <h3 class="text-2xl font-bold flex items-center gap-2"><i class="fas fa-building text-oil-400"></i> US Headquarters</h3>
+            <div class="mt-4 space-y-3 text-gray-700">
+              <p><i class="fas fa-map-marker-alt text-navy-500 mr-3 w-4"></i> 1001 Texas Avenue, Suite 3200, Houston, TX 77002, USA</p>
+              <p><i class="fas fa-globe mr-3 text-navy-500 w-4"></i> info@bhpresources.com</p>
+              <p><i class="fas fa-phone mr-3 text-navy-500 w-4"></i> +1 (713) 555-8900</p>
+            </div>
+            <div class="mt-6 grid grid-cols-2 gap-4">
+              <div class="bg-white p-4 rounded-xl text-center shadow-sm">
+                <i class="fas fa-clock text-xl text-oil-400"></i>
+                <p class="text-xs font-medium mt-2">Mon–Fri 8am–6pm CST</p>
+              </div>
+              <div class="bg-white p-4 rounded-xl text-center shadow-sm">
+                <i class="fas fa-certificate text-xl text-oil-400"></i>
+                <p class="text-xs font-medium mt-2">ISO 9001 · 14001 · 45001</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-navy-600 p-7 rounded-3xl text-white">
+            <h4 class="font-bold text-lg"><i class="fas fa-handshake text-oil-400 mr-2"></i> Partnership Opportunities</h4>
+            <p class="text-gray-300 mt-2 text-sm">We actively seek EPC partnerships, joint ventures, and long-term service agreements with major operators, NOCs, and energy companies worldwide.</p>
+            <div class="flex flex-wrap gap-3 mt-5">
+              <span class="bg-white/10 rounded-full px-4 py-2 text-sm border border-white/10"><i class="fab fa-twitter mr-1"></i> @BHP_Resources</span>
+              <span class="bg-white/10 rounded-full px-4 py-2 text-sm border border-white/10"><i class="fab fa-linkedin mr-1"></i> BHP Resources</span>
+            </div>
+            <div class="mt-5 pt-4 border-t border-white/10 text-sm text-gray-400 flex justify-between">
+              <span><i class="fas fa-shield-alt mr-1"></i> DUNS 08-217-4956</span>
+              <span>US Federal Contractor</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Urgent contact -->
+      <div class="mt-14 bg-oil-50 border border-oil-200 p-7 rounded-2xl text-center max-w-3xl mx-auto">
+        <i class="fas fa-bolt text-oil-400 text-3xl"></i>
+        <p class="text-gray-800 mt-3 text-lg font-medium">For urgent project collaborations, reach out directly to CEO Alan D Baigh:</p>
+        <div class="flex flex-wrap justify-center gap-6 mt-3">
+          <a href="mailto:baighalan210@gmail.com" class="font-bold text-oil-600 hover:underline"><i class="fas fa-envelope mr-1"></i> baighalan210@gmail.com</a>
+          <a href="tel:+14236167455" class="font-bold text-oil-600 hover:underline"><i class="fas fa-phone mr-1"></i> +1 (423) 616-7455</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="bg-navy-600 text-gray-400 pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-6 md:px-8">
+      <div class="grid md:grid-cols-4 gap-10 pb-10 border-b border-white/10">
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-3">
+            <div class="h-10 w-10 bg-white/10 rounded-xl flex items-center justify-center"><i class="fas fa-oil-well text-oil-400 text-lg"></i></div>
+            <span class="font-bold text-white text-xl">BHP Resources Cooperation</span>
+          </div>
+          <p class="mt-4 text-sm leading-relaxed max-w-md">Integrated oil &amp; gas engineering, procurement &amp; construction. Delivering world-class energy infrastructure from our Houston headquarters to operations across 60+ countries.</p>
+          <div class="flex gap-4 mt-6">
+            <a href="#" class="w-10 h-10 bg-white/10 hover:bg-oil-400 hover:text-navy-600 rounded-xl flex items-center justify-center transition text-lg"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="w-10 h-10 bg-white/10 hover:bg-oil-400 hover:text-navy-600 rounded-xl flex items-center justify-center transition text-lg"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="w-10 h-10 bg-white/10 hover:bg-oil-400 hover:text-navy-600 rounded-xl flex items-center justify-center transition text-lg"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-bold text-white mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#home" class="hover:text-oil-400 transition">Home</a></li>
+            <li><a href="#about" class="hover:text-oil-400 transition">Company</a></li>
+            <li><a href="#services" class="hover:text-oil-400 transition">Services</a></li>
+            <li><a href="#projects" class="hover:text-oil-400 transition">Projects</a></li>
+            <li><a href="#contact" class="hover:text-oil-400 transition">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-white mb-4">Services</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#services" class="hover:text-oil-400 transition">Upstream E&amp;P</a></li>
+            <li><a href="#services" class="hover:text-oil-400 transition">Midstream Pipelines</a></li>
+            <li><a href="#services" class="hover:text-oil-400 transition">Downstream Refining</a></li>
+            <li><a href="#services" class="hover:text-oil-400 transition">LNG &amp; Gas Processing</a></li>
+            <li><a href="#services" class="hover:text-oil-400 transition">CCUS &amp; Carbon Mgmt</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="flex flex-col md:flex-row justify-between items-center pt-8 text-xs text-gray-500">
+        <p>&copy; 2025 BHP Resources Cooperation — All rights reserved. Houston, Texas, USA.</p>
+        <p class="mt-2 md:mt-0">EEO / Veteran / Disability employer &middot; Committed to energy security &amp; independence</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    }
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      const scrollPos = window.scrollY + 150;
+      sections.forEach(section => {
+        const top = section.offsetTop;
+        if (scrollPos >= top && scrollPos < top + section.offsetHeight) {
+          current = section.getAttribute('id');
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active-nav');
+        if (link.getAttribute('href').substring(1) === current) {
+          link.classList.add('active-nav');
+        }
+      });
+    });
+    window.dispatchEvent(new Event('scroll'));
+  </script>
+</body>
+</html>
